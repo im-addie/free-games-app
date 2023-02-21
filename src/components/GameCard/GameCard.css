@@ -1,0 +1,24 @@
+.game-card {
+  padding: 10px;
+  filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
+  color: white;
+  width: 275px;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.game-card:hover {
+  transform: scale(1.02);
+  transition: 0.2s;
+}
+
+.platform {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+}
+
+.card-text {
+  position: relative;
+  right: 10px;
+}
