@@ -37,6 +37,7 @@ function Homepage(props) {
           thumbnail={game.thumbnail}
           category={game.genre}
           platform={game.platform}
+          id={game.id}
           />
         )
       })}
