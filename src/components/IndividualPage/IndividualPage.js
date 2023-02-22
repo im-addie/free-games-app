@@ -13,12 +13,20 @@ function IndividualPage(props) {
 
   } = props
 
+  const options = { // had a CORS error here and this fixes it
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '4f5df89040msh182d81d7105763ep1cdd70jsna06891c979eb',
+      'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+    }
+  };
+  
   const {gameId} = useParams()
 
   const [singleGame, setSingleGame] = useState([])
 
   useEffect(() => {
-    fetch(`https://www.freetogame.com/api/game?id=${gameId}`)
+    fetch(`https://free-to-play-games-database.p.rapidapi.com/api/game?id=${gameId}`, options)
       .then(response => {
         if(!response.ok) {
           throw new Error("Failed to fetch")
@@ -36,7 +44,7 @@ function IndividualPage(props) {
       <Grid container rowSpacing={2}>
 
         {/* grid of main info */}
-        <Grid item xs={9}>
+        <Grid item xs={12}>
           
           {/* screenshots */}
           {screenshots?.map((image) => { // the question mark is to handle if the array is there
@@ -113,14 +121,10 @@ function IndividualPage(props) {
 
         </Grid>
 
-        {/* empty space to separate sidebar and main info */}
-        <Grid item xs={0.5}>
-        </Grid>
-
-        {/* suggested titles sidebar */}
-        <Grid item xs={2.5}>
-            suggested titles sidebar
-        </Grid>
+        {/* 
+        add <Grid item xs={0.5}'> for space between main and sidebar
+        add '<Grid item xs={2.5}'> for suggested titles sidebar 
+        */}
       </Grid>
     </div>
   )

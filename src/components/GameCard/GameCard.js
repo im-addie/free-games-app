@@ -8,8 +8,6 @@ import { useParams } from 'react-router-dom'
 
 function GameCard(props) {
 
-  const {gameId} = useParams()
-
   const {
     title,
     platform,
@@ -20,7 +18,7 @@ function GameCard(props) {
 
   return (
     <div>
-      <Link to={`/game/${gameId}`} element={<IndividualPage />} >
+      <Link to={`/${id}`}>
         <Card
         className='game-card'
         style={{backgroundColor: "#484848"}}

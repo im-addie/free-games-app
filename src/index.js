@@ -8,7 +8,8 @@ import reportWebVitals from './reportWebVitals';
 const prepare = () => {
   if (process.env.NODE_ENV === 'development') {  // prevents the mock server from working in a deployed, production env
     const { worker } = require('./mocks/browser.js')
-    return worker.start()
+    return worker.start() 
+    // Comment out the line above to disable the mock api
   }
   return Promise.resolve()
 }

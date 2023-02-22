@@ -10,12 +10,20 @@ function Homepage(props) {
   const {
   //destructure props
   } = props
+ 
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '4f5df89040msh182d81d7105763ep1cdd70jsna06891c979eb',
+      'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+    }
+  };
 
   //define state
   const [allGames, setAllGames] = useState([])
 
   useEffect(() => {
-    fetch("https://www.freetogame.com/api/games")
+    fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
       .then(response => {
         if(!response.ok) {
           throw new Error("Failed to fetch")
