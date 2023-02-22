@@ -1,0 +1,14 @@
+.screenshots {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: start;
+  height: 241px;
+  width: 429px;
+  margin: 10px;
+  border-radius: 20px; 
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.494);
+}
+
+img.screenshots {
+  border-radius: 20px; 
+}

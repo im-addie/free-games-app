@@ -4,8 +4,9 @@ import { setupServer } from 'msw/node'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import multipleGames from '../../mocks/data/multipleGames.json'
-import singleGame from '../../mocks/data/singleGame.json'
+import overwatch2 from '../../mocks/data/overwatch2.json'
 import App from '../../App'
+import { BrowserRouter } from 'react-router-dom'
 
 // declare which API requests to mock
 const server = setupServer(
@@ -13,7 +14,7 @@ const server = setupServer(
     return res(ctx.json(multipleGames)) // respond using a mocked JSON body
   }),
   rest.get('https://www.freetogame.com/api/game?id=540', (req, res, ctx) => { // capture "GET /greeting" requests
-  return res(ctx.json(singleGame)) // respond using a mocked JSON body
+  return res(ctx.json(overwatch2)) // respond using a mocked JSON body
 }))
 
 // establish API mocking before all tests
@@ -23,7 +24,11 @@ afterAll(() => server.close()) // clean up once the tests are done
 
 describe('Homepage', () => {
   test('should render multiple game cards', async () => {
-    render(<App />)
+    render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+    )
 
     expect(await screen.findByText('Overwatch 2')).toBeVisible()
     expect(await screen.findByText('Diablo Immortal')).toBeVisible()
