@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import GamesIcon from '@mui/icons-material/Games';
 import { useState } from 'react';
 
 // text for the buttons, would probably remove them
@@ -32,7 +33,7 @@ function Navbar() {
         <Toolbar disableGutters>
 
           {/* logo on big screens */}
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <GamesIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           
           {/* name on big screens */}
           <Typography
@@ -95,7 +96,7 @@ function Navbar() {
           </Box>
           
           {/* logo on small screens */}
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <GamesIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           
           {/* name on small screens */}
           <Typography
