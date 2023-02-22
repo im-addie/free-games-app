@@ -40,7 +40,7 @@ function IndividualPage(props) {
   const screenshots = singleGame.screenshots
 
   return (
-    <div>
+    <div className='individual-page'>
       <Grid container rowSpacing={2}>
 
         {/* grid of main info */}
@@ -125,6 +125,7 @@ function IndividualPage(props) {
         add <Grid item xs={0.5}'> for space between main and sidebar
         add '<Grid item xs={2.5}'> for suggested titles sidebar 
         */}
+        
       </Grid>
     </div>
   )
