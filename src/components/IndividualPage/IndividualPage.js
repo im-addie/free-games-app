@@ -3,7 +3,6 @@ import './IndividualPage.css'
 import { useState, useEffect } from 'react'
 import Grid from '@mui/material/Grid';
 import { Typography } from '@mui/material';
-import Screenshots from './Screenshots'
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
@@ -50,9 +49,7 @@ function IndividualPage(props) {
           {/* screenshots */}
           {screenshots?.map((image) => { // the question mark is to handle if the array is there
           return (
-            
-              <img src={image.image}/>
-            
+              <img src={image.image} />
           )})}
         </div>
 
@@ -98,7 +95,7 @@ function IndividualPage(props) {
           </Typography>
               
           <Typography variant='h6' fontWeight='bold'>
-            Release
+            Release date
           </Typography>
 
           <Typography marginBottom={3}>

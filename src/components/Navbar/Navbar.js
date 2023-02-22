@@ -53,53 +53,6 @@ function Navbar() {
           >
             free games finder
           </Typography>
-
-
-        {/* 
-        small screen collapsable navbar:
-        <div>
-           comment: nav menu on small screens
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            
-            comment: 3 lines icon on small screens that open small navbar
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              comment: buttons text for small screens
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </div>
-        */}
           
           {/* logo on small screens */}
           <GamesIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />

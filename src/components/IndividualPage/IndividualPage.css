@@ -24,17 +24,13 @@ body {
   margin-top: 15px;
 }
 
-.screenshots {
-  display: flex;
-  flex-flow: row wrap;
-  height: 241px;
-  width: 429px;
-  margin: 10px;
-  border-radius: 20px; 
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.494);
-  gap: 20px;
-}
-
 img {
   border-radius: 10px; 
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.494);
+}
+
+.screenshots {
+  display: flex;
+  margin: 20px;
+  height: 250px;
 }
