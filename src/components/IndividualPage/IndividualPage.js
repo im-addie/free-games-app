@@ -44,15 +44,17 @@ function IndividualPage(props) {
       <Grid container rowSpacing={2}>
 
         {/* grid of main info */}
-        <Grid item xs={12}>
+        <Grid item xs={9}>
           
+        <div className='screenshots'>
           {/* screenshots */}
           {screenshots?.map((image) => { // the question mark is to handle if the array is there
           return (
-            <Screenshots 
-            screenshot={image.image}
-          />
+            
+              <img src={image.image}/>
+            
           )})}
+        </div>
 
           <Typography variant='h3' fontWeight='bold'>
             {singleGame.title}
@@ -121,10 +123,13 @@ function IndividualPage(props) {
 
         </Grid>
 
-        {/* 
-        add <Grid item xs={0.5}'> for space between main and sidebar
-        add '<Grid item xs={2.5}'> for suggested titles sidebar 
-        */}
+        <Grid item xs={0.5}>
+          {/* space between sidebar and main */}
+        </Grid>
+        
+        <Grid item xs={2.5}>
+          {/* suggested titles sidebar goes here */}
+        </Grid>
         
       </Grid>
     </div>
