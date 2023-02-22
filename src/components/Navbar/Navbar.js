@@ -54,10 +54,14 @@ function Navbar() {
             free games finder
           </Typography>
 
-          {/* nav menu on small screens */}
+
+        {/* 
+        small screen collapsable navbar:
+        <div>
+           comment: nav menu on small screens
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             
-            {/* 3 lines icon on small screens that open small navbar*/}
+            comment: 3 lines icon on small screens that open small navbar
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -86,7 +90,7 @@ function Navbar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {/* buttons */}
+              comment: buttons text for small screens
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
@@ -94,6 +98,8 @@ function Navbar() {
               ))}
             </Menu>
           </Box>
+        </div>
+        */}
           
           {/* logo on small screens */}
           <GamesIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -121,16 +127,25 @@ function Navbar() {
           {/* nav menu on big screens */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             
-            {/* buttons */}
-            {pages.map((page) => (
+            {/* buttons text for big screens */}
               <Button
-                key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                Category
               </Button>
-            ))}
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Platform
+              </Button>
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                New Releases
+              </Button>
           </Box>
 
         </Toolbar>
