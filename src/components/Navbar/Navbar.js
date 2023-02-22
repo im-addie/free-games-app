@@ -13,6 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useState } from 'react';
 
+// text for the buttons, would probably remove them
 const pages = ['Products', 'Pricing', 'Blog'];
 
 function Navbar() {
@@ -32,6 +33,8 @@ function Navbar() {
 
           {/* logo on big screens */}
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          
+          {/* name on big screens */}
           <Typography
             variant="h6"
             noWrap
@@ -52,6 +55,8 @@ function Navbar() {
 
           {/* nav menu on small screens */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            
+            {/* 3 lines icon on small screens that open small navbar*/}
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -80,6 +85,7 @@ function Navbar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+              {/* buttons */}
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
@@ -90,6 +96,8 @@ function Navbar() {
           
           {/* logo on small screens */}
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          
+          {/* name on small screens */}
           <Typography
             variant="h5"
             noWrap
@@ -111,6 +119,8 @@ function Navbar() {
           
           {/* nav menu on big screens */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            
+            {/* buttons */}
             {pages.map((page) => (
               <Button
                 key={page}
