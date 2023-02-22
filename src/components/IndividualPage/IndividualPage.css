@@ -16,20 +16,25 @@ body {
 }
 
 .description {
-  padding-right: 25px;
+  padding-right: 200px;
+}
+
+.individual-page {
+  margin-left: 50px;
+  margin-top: 15px;
 }
 
 .screenshots {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: start;
+  flex-flow: row wrap;
   height: 241px;
   width: 429px;
   margin: 10px;
   border-radius: 20px; 
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.494);
+  gap: 20px;
 }
 
-img.screenshots {
-  border-radius: 20px; 
+img {
+  border-radius: 10px; 
 }
