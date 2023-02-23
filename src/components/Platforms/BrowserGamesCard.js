@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { Card, CardContent, Typography, CardMedia } from '@mui/material'
 
-function NewReleasesCard(props) {
+function BrowserGamesCard(props) {
 
   const {
     title,
@@ -50,4 +50,4 @@ function NewReleasesCard(props) {
   )
 }
 
-export default NewReleasesCard
+export default BrowserGamesCard
