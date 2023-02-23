@@ -29,8 +29,12 @@ img {
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.494);
 }
 
+.screenshots img {
+  margin-top: 20px;
+  margin-right: 20px;
+  width: 450px;
+}
+
 .screenshots {
-  display: flex;
-  margin: 20px;
-  height: 250px;
+  margin-left: -90px;
 }

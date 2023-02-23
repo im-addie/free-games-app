@@ -40,18 +40,22 @@ function IndividualPage(props) {
 
   return (
     <div className='individual-page'>
-      <Grid container rowSpacing={2}>
+      
+      <Grid container rowSpacing={2} >
 
-        {/* grid of main info */}
-        <Grid item xs={9}>
-          
+        {/* grid of screenshots */}
+        <Grid item xs={9} className='screenshots-grid' style={{textAlign: "center"}}>
         <div className='screenshots'>
           {/* screenshots */}
           {screenshots?.map((image) => { // the question mark is to handle if the array is there
-          return (
+            return (
               <img src={image.image} />
-          )})}
+            )})}
         </div>
+        </Grid>
+
+        {/* grid of main info */}
+        <Grid item xs={9}>
 
           <Typography variant='h3' fontWeight='bold'>
             {singleGame.title}
@@ -71,7 +75,6 @@ function IndividualPage(props) {
                 play game
               </Link>
             </Typography>
-            
           </div>
           
           <Typography fontSize={18} marginBottom={3} className='description'>
