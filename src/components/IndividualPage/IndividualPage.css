@@ -7,6 +7,16 @@ body {
   border-radius: 5px;
   background-color: #484848;
   color: white;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.494);
+}
+
+.play-game-button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgb(56, 116, 203);
+  color: white;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.494);
+  margin-bottom: 25px;
 }
 
 .game-props {
@@ -16,6 +26,7 @@ body {
 }
 
 .description {
+  padding-top: 10px;
   padding-right: 200px;
 }
 

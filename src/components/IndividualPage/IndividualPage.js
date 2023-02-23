@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { dateFormat } from '../utils';
 
 function IndividualPage(props) {
 
@@ -62,6 +63,7 @@ function IndividualPage(props) {
           </Typography>
 
           <div style={{ display: "flex", alignItems: "baseline" }} className='game-props'>
+            
             <Typography variant='button' className='button-look' fontWeight='bold'>
               {singleGame.platform}
             </Typography>
@@ -70,16 +72,19 @@ function IndividualPage(props) {
               {singleGame.genre}
             </Typography>
 
-            <Typography variant='button' className='button-look' fontWeight='bold'>
-              <Link to={singleGame.game_url} color='white'>
-                play game
-              </Link>
-            </Typography>
           </div>
           
           <Typography fontSize={18} marginBottom={3} className='description'>
             {singleGame.description}
           </Typography>
+          
+          <div style={{ display: "flex", alignItems: "baseline" }}>
+            <Link to={singleGame.game_url} color='white' className='play-game-button'>
+                <Typography variant='button'  fontWeight='bold' fontSize={22}>
+                  play game
+                </Typography>
+              </Link>
+          </div>
 
           <Typography variant='h6' fontWeight='bold'>
             System requirements
@@ -102,7 +107,7 @@ function IndividualPage(props) {
           </Typography>
 
           <Typography marginBottom={3}>
-            {singleGame?.release_date}
+            {dateFormat(singleGame?.release_date)}
           </Typography>
 
           <Typography variant='h6' fontWeight='bold'>
