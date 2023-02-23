@@ -1,12 +1,9 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, Typography, CardMedia } from '@mui/material'
-import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import './GameCard.css'
-import IndividualPage from '../IndividualPage/IndividualPage'
-import { useParams } from 'react-router-dom'
 
-function GameCard(props) {
+function NewReleasesCard(props) {
 
   const {
     title,
@@ -54,4 +51,4 @@ function GameCard(props) {
   )
 }
 
-export default GameCard
+export default NewReleasesCard
