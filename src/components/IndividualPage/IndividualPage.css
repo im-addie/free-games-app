@@ -33,6 +33,7 @@ img {
   margin-top: 20px;
   margin-right: 20px;
   width: 450px;
+  border-radius: 10px;
 }
 
 .screenshots {
