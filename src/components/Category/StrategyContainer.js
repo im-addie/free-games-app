@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import GameCard from '../GameCard/GameCard';
+import GameCard from '../GameCard/GameCard'
 
-function WindowsGamesContainer() {
-
+function StrategyContainer() {
+  
   const options = {
     method: 'GET',
     headers: {
@@ -12,24 +12,23 @@ function WindowsGamesContainer() {
     }
   };
 
-  const [browserGames, setBrowserGames] = useState([])
+  const [strategyGames, setStrategyGames] = useState([])
 
   useEffect(() => {
-    fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?platform=browser', options)
+    fetch('https://free-to-play-games-database.p.rapidapi.com/api/games?category=strategy', options)
       .then(response => {
         if(!response.ok) {
           throw new Error("Failed to fetch")
         }
         return response.json() // parse the response data
       })
-      .then(result => setBrowserGames(result)) // set state when the data received
+      .then(result => setStrategyGames(result)) // set state when the data received
       .catch(err => err) // return the error
     }, [])
-
+  
   return (
-    <div>
-      <div className="container">
-      {browserGames.map((game) => {
+    <div className='container'>
+      {strategyGames.map((game) => {
         return (
           <GameCard
           title={game.title}
@@ -41,8 +40,7 @@ function WindowsGamesContainer() {
         )
       })}
     </div>
-    </div>
   )
 }
 
-export default WindowsGamesContainer
+export default StrategyContainer

@@ -16,6 +16,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { styled, alpha } from '@mui/material/styles';
 import WindowsGamesContainer from '../Platforms/WindowsGamesContainer';
 import BrowserGamesContainer from '../Platforms/BrowserGamesContainer'
+import CategoryButton from './CategoryButton';
 
 // text for the buttons, would probably remove them
 
@@ -65,7 +66,9 @@ function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   
   const [anchorEl, setAnchorEl] = useState(null);
+  
   const open = Boolean(anchorEl);
+  
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -144,12 +147,7 @@ function Navbar() {
               </Button>
             </Link>
 
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Category
-              </Button>
+            <CategoryButton />
 
               <div className='platforms'>
                 <Button 

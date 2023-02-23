@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import WindowsGamesCard from './WindowsGamesCard';
+import GameCard from '../GameCard/GameCard';
 
 function WindowsGamesContainer() {
 
@@ -31,7 +31,7 @@ function WindowsGamesContainer() {
       <div className="container">
       {windowsGames.map((game) => {
         return (
-          <WindowsGamesCard
+          <GameCard
           title={game.title}
           thumbnail={game.thumbnail}
           category={game.genre}
