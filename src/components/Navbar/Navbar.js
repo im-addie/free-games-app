@@ -3,25 +3,81 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import GamesIcon from '@mui/icons-material/Games';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import NewReleasesContainer from '../NewReleases/NewReleasesContainer';
 import Homepage from '../Homepage/Homepage'
+import './Navbar.css'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { styled, alpha } from '@mui/material/styles';
+import WindowsGamesContainer from '../Platforms/WindowsGamesContainer';
+import BrowserGamesContainer from '../Platforms/BrowserGamesContainer'
 
 // text for the buttons, would probably remove them
-const pages = ['Products', 'Pricing', 'Blog'];
+
+// styling for the dropdown buttons
+const StyledMenu = styled((props) => (
+  <Menu
+    elevation={0}
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'left',
+    }}
+    transformOrigin={{
+      vertical: 'top',
+      horizontal: 'left',
+    }}
+    {...props}
+  />
+))(({ theme }) => ({
+  '& .MuiPaper-root': {
+    borderRadius: 6,
+    marginTop: theme.spacing(1),
+    minWidth: 180,
+    color:
+      theme.palette.mode === 'light' ? 'rgb(55, 65, 81)' : theme.palette.grey[300],
+    boxShadow:
+      'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
+    '& .MuiMenu-list': {
+      padding: '4px 0',
+    },
+    '& .MuiMenuItem-root': {
+      '& .MuiSvgIcon-root': {
+        fontSize: 18,
+        color: theme.palette.text.secondary,
+        marginRight: theme.spacing(1.5),
+      },
+      '&:active': {
+        backgroundColor: alpha(
+          theme.palette.primary.main,
+          theme.palette.action.selectedOpacity,
+        ),
+      },
+    },
+  },
+}));
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
+  
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
   };
 
   return (
@@ -75,11 +131,12 @@ function Navbar() {
           </Typography>
           
           {/* nav menu on big screens */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} >
             
             {/* buttons text for big screens */}
+            
             <Link to='/' element={<Homepage/>}>
-              <Button
+              <Button 
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
@@ -93,13 +150,43 @@ function Navbar() {
               >
                 Category
               </Button>
-              
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Platform
-              </Button>
+
+              <div className='platforms'>
+                <Button 
+                  id="demo-customized-button"
+                  aria-controls={open ? 'demo-customized-menu' : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? 'true' : undefined}
+                  variant="contained"
+                  disableElevation
+                  onClick={handleClick}
+                  endIcon={<KeyboardArrowDownIcon />}
+                  sx={{ my: 2, color: 'white'}}
+                >
+                  Platform
+                </Button>
+                <StyledMenu
+                  id="demo-customized-menu"
+                  MenuListProps={{
+                    'aria-labelledby': 'demo-customized-button',
+                  }}
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                >
+                  <Link to='/platform/windows' element={<WindowsGamesContainer/>} className='link-button'>
+                    <MenuItem onClick={handleClose} disableRipple>
+                      Windows
+                    </MenuItem>
+                  </Link>
+
+                  <Link to='/platform/browser' element={<BrowserGamesContainer/>} className='link-button'>
+                    <MenuItem onClick={handleClose} disableRipple>
+                      Browser
+                    </MenuItem>
+                  </Link>
+                </StyledMenu>
+              </div>
               
               <Link to='/new-releases' element={<NewReleasesContainer/>}>
                 <Button
