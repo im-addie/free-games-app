@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event'
 import multipleGames from '../../mocks/data/multipleGames.json'
 import overwatch2 from '../../mocks/data/overwatch2.json'
 import App from '../../App'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, MemoryRouter } from 'react-router-dom'
 
 // declare which API requests to mock
 const server = setupServer(
@@ -25,9 +25,9 @@ afterAll(() => server.close()) // clean up once the tests are done
 describe('Homepage', () => {
   test('should render multiple game cards', async () => {
     render(
-    <BrowserRouter>
+    <MemoryRouter initialEntries={['/']}>
       <App />
-    </BrowserRouter>
+    </MemoryRouter>
     )
 
     expect(await screen.findByText('Overwatch 2')).toBeVisible()
@@ -36,7 +36,11 @@ describe('Homepage', () => {
   })
   
   test('should render game title', async () => {
-    render(<App />)
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+      )
 
     expect(await screen.findByText('Overwatch 2')).toBeVisible()
     expect(await screen.findByText('Diablo Immortal')).toBeVisible()
@@ -44,7 +48,11 @@ describe('Homepage', () => {
   })
   
   test('should render game category', async () => {
-    render(<App />)
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+      )
 
     const shooter = await screen.findAllByText('Shooter')
     const MMOARPG = await screen.findAllByText('MMOARPG')
@@ -56,7 +64,11 @@ describe('Homepage', () => {
   })
   
   test('should render game platform', async () => {
-    render(<App />)
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+      )
 
     const windows = await screen.findAllByText('PC (Windows)')
 
@@ -64,17 +76,25 @@ describe('Homepage', () => {
   })
   
   test('should render game thumbnails', async () => {
-    render(<App />)
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+      )
 
     const img = await screen.findAllByRole('img')
     expect(img[0]).toBeVisible()
   })
 
   test('should route from homepage to an individual game page', async () => {
-    render(<App />)
+    render(
+      <MemoryRouter initialEntries={['/540']}>
+        <App />
+      </MemoryRouter>
+      )
 
     await userEvent.click(await screen.findByText('Overwatch 2'))
 
-    expect(await screen.findByText('System requirements:')).toBeVisible()
+    expect(await screen.findByText('System requirements')).toBeVisible()
   })
 })

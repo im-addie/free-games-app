@@ -97,7 +97,7 @@ function IndividualPage(props) {
             <br />
             Memory: {singleGame?.minimum_system_requirements?.memory}
             <br />
-            Graphics: {singleGame?.minimum_system_requirements?.graphics}
+            Graphics card: {singleGame?.minimum_system_requirements?.graphics}
             <br />
             Storage: {singleGame?.minimum_system_requirements?.storage}
           </Typography>
@@ -107,7 +107,7 @@ function IndividualPage(props) {
           </Typography>
 
           <Typography marginBottom={3}>
-            {dateFormat(singleGame?.release_date)}
+            {(singleGame?.release_date)}
           </Typography>
 
           <Typography variant='h6' fontWeight='bold'>
