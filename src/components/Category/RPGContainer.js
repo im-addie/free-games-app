@@ -2,12 +2,16 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import GameCard from '../GameCard/GameCard'
 
-function RPGContainer() {
+function RPGContainer(props) {
   
+  const {
+
+  } = props
+
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': '4f5df89040msh182d81d7105763ep1cdd70jsna06891c979eb',
+      'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`,
       'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
     }
   };

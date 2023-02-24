@@ -1,13 +1,17 @@
 import React from 'react'
-import NewReleasesCard from './NewReleasesCard';
 import { useState, useEffect } from 'react';
+import GameCard from '../GameCard/GameCard'
 
-function NewReleasesContainer() {
+function NewReleasesContainer(props) {
   
+  const {
+    
+  } = props
+ 
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': '4f5df89040msh182d81d7105763ep1cdd70jsna06891c979eb',
+      'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`,
       'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
     }
   };
@@ -31,7 +35,7 @@ function NewReleasesContainer() {
     <div className="container">
       {newReleases.map((game) => {
         return (
-          <NewReleasesCard
+          <GameCard
           title={game.title}
           thumbnail={game.thumbnail}
           category={game.genre}

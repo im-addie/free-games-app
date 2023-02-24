@@ -69,54 +69,54 @@ function CategoryButton() {
 
   return (
     <div className='category'>
-              <Button 
-                id="demo-customized-button"
-                aria-controls={open ? 'demo-customized-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                variant="contained"
-                disableElevation
-                onClick={handleClick}
-                endIcon={<KeyboardArrowDownIcon />}
-                sx={{ my: 2, color: 'white'}}
-              >
-                Category
-              </Button>
-              <StyledMenu
-                id="demo-customized-menu"
-                MenuListProps={{
-                  'aria-labelledby': 'demo-customized-button',
-                }}
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-              >
-                <Link to='/category/shooter' element={<ShooterContainer/>} className='link-button'>
-                  <MenuItem onClick={handleClose} disableRipple>
-                    Shooter
-                  </MenuItem>
-                </Link>
+      <Button 
+        id="demo-customized-button"
+        aria-controls={open ? 'demo-customized-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        variant="contained"
+        disableElevation
+        onClick={handleClick}
+        endIcon={<KeyboardArrowDownIcon />}
+        sx={{ my: 2, color: 'white'}}
+      >
+        Category
+      </Button>
+      <StyledMenu
+        id="demo-customized-menu"
+        MenuListProps={{
+          'aria-labelledby': 'demo-customized-button',
+        }}
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+      >
+        <Link to='/category/shooter' element={<ShooterContainer/>} className='link-button'>
+          <MenuItem onClick={handleClose} disableRipple>
+            Shooter
+          </MenuItem>
+        </Link>
 
-                <Link to='/category/sci-fi' element={<SciFiContainer/>} className='link-button'>
-                  <MenuItem onClick={handleClose} disableRipple>
-                    Sci-Fi
-                  </MenuItem>
-                </Link>
+        <Link to='/category/sci-fi' element={<SciFiContainer/>} className='link-button'>
+          <MenuItem onClick={handleClose} disableRipple>
+            Sci-Fi
+          </MenuItem>
+        </Link>
 
-                <Link to='/category/strategy' element={<StrategyContainer/>} className='link-button'>
-                  <MenuItem onClick={handleClose} disableRipple>
-                    Strategy
-                  </MenuItem>
-                </Link>
+        <Link to='/category/strategy' element={<StrategyContainer/>} className='link-button'>
+          <MenuItem onClick={handleClose} disableRipple>
+            Strategy
+          </MenuItem>
+        </Link>
 
-                <Link to='/category/rpg' element={<RPGContainer/>} className='link-button'>
-                  <MenuItem onClick={handleClose} disableRipple>
-                    Role-playing
-                  </MenuItem>
-                </Link>
+        <Link to='/category/rpg' element={<RPGContainer/>} className='link-button'>
+          <MenuItem onClick={handleClose} disableRipple>
+            Role-playing
+          </MenuItem>
+        </Link>
 
-              </StyledMenu>
-            </div>
+      </StyledMenu>
+    </div>
   )
 }
 
