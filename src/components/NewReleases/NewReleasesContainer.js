@@ -23,7 +23,7 @@ function NewReleasesContainer() {
         }
         return response.json() // parse the response data
       })
-      .then(result => setNewReleases(result)) // set state when the data received
+      .then(result => setNewReleases(result.slice(0,20))) // set state when the data received
       .catch(err => err) // return the error
     }, [])
     
