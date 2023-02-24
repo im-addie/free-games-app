@@ -23,6 +23,7 @@ const StyledMenu = styled((props) => (
       horizontal: 'left',
     }}
     {...props}
+    disableScrollLock={true}
   />
 ))(({ theme }) => ({
   '& .MuiPaper-root': {
